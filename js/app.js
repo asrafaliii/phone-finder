@@ -11,7 +11,7 @@ const allPhones = () => {
     .then(data => showPhones(data.data));
 };
 
-
+// show phones
 const showPhones = (phones) => {
     for(const phone of phones){
         const parent = document.getElementById('phone-container');
@@ -24,7 +24,7 @@ const showPhones = (phones) => {
             <p class="card-text">${phone.phone_name}</p>
             <div class="d-flex justify-content-between">
               <h5 class="brand-title">${phone.brand}</h5>
-              <button class="btn btn-info text-white">Details</button>
+              <button onclick="details('${phone.slug}')" class="btn btn-info text-white">Details</button>
             </div>
         </div>
         `;
@@ -34,4 +34,37 @@ const showPhones = (phones) => {
     // console.log(phones);
 };
 
+// show phone details
+
+const details = (id) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => showPhoneDetails(data.data));
+};
+
+const showPhoneDetails = (info) => {
+    document.getElementById('details-container').innerHTML = `
+    <div class="row">
+            <div class="col-md-4">
+              <div class="text-center">
+                <img src="${info.image}" class="card-img-top w-75" alt="...">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h3>'${info.phone_name}'</h3>
+              <p>Release Date:${info.releaseDate}</p>
+              <h1>Main Features </h1>
+
+              <h5>Brand:${info.brand}</h5>
+              <h5>Display Size:${info.displaySize}</h5>
+              <h5>Sensors:${info.sensors}</h5>
+              <h5>Others:${info.others}</h5>
+
+              
+              <h6>Sensors:</h6>
+            </div>
+          </div>
+    `
+}
 
