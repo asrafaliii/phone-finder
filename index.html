@@ -13,8 +13,8 @@
             <div class="container-fluid container">
                 <a class="navbar-brand fs-1 text-info" href="#">Phone Finder</a>
               <div class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input id="search-box" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button onclick="allPhones()" class="btn btn-outline-info" type="submit">Search</button>
               </div>
             </div>
           </nav>
@@ -24,19 +24,10 @@
 
       </section>
 
-      
+
       <section class="phone-card">
-        <div class="card m-2" style="width: 18rem;">
-          <div class="text-center">
-            <img src="image/phone.png" class="card-img-top w-50" alt="...">
-          </div>
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk oft.</p>
-            <div class="d-flex justify-content-between">
-              <h5 class="brand-title">Nokia</h5>
-              <button class="btn btn-info text-white">Details</button>
-            </div>
-          </div>
+        <div id="phone-container" class="card m-2 mb-2 d-grid gap-3" style="width: 18rem;">
+          
         </div>
       </section>
     </main>
