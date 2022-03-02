@@ -2,16 +2,11 @@
 
 const allPhones = () => {
   // console.log('hello')
-  const searchText = document.getElementById('search-box').value;
-
-
-  // const searchText = document.getElementById('search-box');
-  // const inputValue = searchText.value;
-  // if()
+  const inputValue = document.getElementById('search-box').value;
 
 
   // console.log(searchText);
-  const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
+  const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
   // console.log(url);
   fetch(url)
   .then(res => res.json())
@@ -70,11 +65,11 @@ const showPhoneDetails = (detail) => {
            <p>Release Date:  ${detail.releaseDate ? detail.releaseDate: "Not Found"}</p>
             <h1>Main Features </h1>
 
-            <h5 class="">Brand:<span class="">  ${detail.brand}</span></h5>
-            <h5>Storage:  ${detail.mainFeatures.storage}</h5>
-            <h5>Display Size:  ${detail.mainFeatures.displaySize}</h5>
-            <h5>Memory:  ${detail.mainFeatures.memory}</h5>
-            <h5>Sensors:  ${detail.mainFeatures.sensors ? detail.mainFeatures.sensors:"Not Found" }</h5>
+            <h5 class="">Brand:<span class="fs-6">  ${detail.brand}</span></h5>
+            <h5>Storage:<span class="fs-6">   ${detail.mainFeatures.storage ? detail.mainFeatures.storage:"Not Found"}</span></h5>
+            <h5>Display Size:<span class="fs-6">   ${detail.mainFeatures.displaySize ? detail.mainFeatures.displaySize: "Not Found"}</span></h5>
+            <h5>Memory:<span class="fs-6">   ${detail.mainFeatures.memory ? detail.mainFeatures.memory: "Not Found"}</span></h5>
+            <h5>Sensors:<span class="fs-6">   ${detail.mainFeatures.sensors ? detail.mainFeatures.sensors:"Not Found" }</span></h5>
             
             <h5>Others:</h5>
             <ul>
