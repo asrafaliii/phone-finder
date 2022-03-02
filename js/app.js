@@ -47,26 +47,34 @@ const details = (id) => {
   .then(data => showPhoneDetails(data.data));
 };
 
-const showPhoneDetails = (info) => {
+const showPhoneDetails = (detail) => {
   document.getElementById('details-container').innerHTML = `
-  <div class="row ">
+  <div class="row mb-5 mt-3">
           <div class="col-md-4">
             <div class="text-center">
-              <img src="${info.image}" class="card-img-top w-75" alt="...">
+              <img src="${detail.image}" class="card-img-top w-75" alt="...">
             </div>
           </div>
           <div class="col-md-8">
-            <h3>${info.phone_name}</h3>
-            <p>Release Date:${info.releaseDate}</p>
+            <h3>  ${detail.name}</h3>
+            <p>Release Date:  ${detail.releaseDate}</p>
             <h1>Main Features </h1>
 
-            <h5>Brand:${info.brand}</h5>
-            <h5>Display Size:${info.displaySize}</h5>
-            <h5>Sensors:${info.sensors}</h5>
-            <h5>Others:${info.others}</h5>
-
+            <h5 class="">Brand:<span class="">  ${detail.brand}</span></h5>
+            <h5>Storage:  ${detail.mainFeatures.storage}</h5>
+            <h5>Display Size:  ${detail.mainFeatures.displaySize}</h5>
+            <h5>Memory:  ${detail.mainFeatures.memory}</h5>
+            <h5>Sensors:  ${detail.mainFeatures.sensors}</h5>
             
-            <h6>Sensors:</h6>
+            <h5>Others:</h5>
+            <ul>
+            <li>WLAN: ${detail.others.WLAN}</li>
+            <li>Bluetooth: ${detail.others.Bluetooth}</li>
+            <li>GPS: ${detail.others.GPS}</li>
+            <li>NFC: ${detail.others.NFC}</li>
+            <li>Radio: ${detail.others.Radio}</li>
+            <li>USB: ${detail.others.USB}</li>
+            </ul>
           </div>
         </div>
   `
